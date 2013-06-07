@@ -27,4 +27,8 @@ describe 'The Mars rover', ->
       rover.turnLeft()
       expect(rover.direction).toEqual 'W'
 
+    it 'can turn left twice', ->
+      rover.turnLeft()
+      rover.turnLeft()
+      expect(rover.direction).toEqual 'S'
 
