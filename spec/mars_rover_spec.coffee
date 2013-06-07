@@ -6,5 +6,9 @@ describe 'The Mars rover', ->
     expect(rover.position).toEqual x: 1, y: 2
 
   it 'starts on a default position (0, 0), when not given in constructor', ->
-    rover = new MarsRover()
+    rover = new MarsRover(null)
     expect(rover.position).toEqual x: 0, y: 0
+
+  it 'starts with a direction', ->
+    rover = new MarsRover(null, 'E')
+    expect(rover.direction).toEqual 'E'
