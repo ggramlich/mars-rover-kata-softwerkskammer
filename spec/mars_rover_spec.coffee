@@ -12,3 +12,7 @@ describe 'The Mars rover', ->
   it 'starts with a direction', ->
     rover = new MarsRover(null, 'E')
     expect(rover.direction).toEqual 'E'
+
+  it 'starts with default direction "N", when not given in constructor', ->
+    rover = new MarsRover(null, null)
+    expect(rover.direction).toEqual 'N'
