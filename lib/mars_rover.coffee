@@ -4,9 +4,9 @@ DIRECTION =
   E:
     left: 'N', right: 'S', vector: x: 1, y: 0
   S:
-    left: 'E', right: 'W'
+    left: 'E', right: 'W', vector: x: 0, y: -1
   W:
-    left: 'S', right: 'N'
+    left: 'S', right: 'N', vector: x: -1, y: 0
 
 class Point
   constructor: (@position = {x: 0, y: 0}) ->
