@@ -1,6 +1,10 @@
 MarsRover = require '../lib/mars_rover'
 
 describe 'The Mars rover', ->
+  beforeEach () ->
+    @addMatchers
+      toHead: (direction) -> @actual.direction is direction
+
   describe 'start', ->
     it 'has a position', ->
       rover = new MarsRover(x: 1, y: 2)
@@ -12,11 +16,12 @@ describe 'The Mars rover', ->
 
     it 'has a direction', ->
       rover = new MarsRover(null, 'E')
-      expect(rover.direction).toEqual 'E'
+      expect(rover).toHead 'E'
 
     it 'has default direction "N", when not given in constructor', ->
       rover = new MarsRover(null, null)
-      expect(rover.direction).toEqual 'N'
+      expect(rover).toHead 'N'
+
 
   describe 'turning', ->
     rover = null
@@ -25,23 +30,23 @@ describe 'The Mars rover', ->
 
     it 'can turn left', ->
       rover.turnLeft()
-      expect(rover.direction).toEqual 'W'
+      expect(rover).toHead 'W'
 
     it 'can turn left twice', ->
       rover.turnLeft()
       rover.turnLeft()
-      expect(rover.direction).toEqual 'S'
+      expect(rover).toHead 'S'
 
     it 'can turn left three times', ->
       rover.turnLeft()
       rover.turnLeft()
       rover.turnLeft()
-      expect(rover.direction).toEqual 'E'
+      expect(rover).toHead 'E'
 
     it 'can turn left four times', ->
       rover.turnLeft()
       rover.turnLeft()
       rover.turnLeft()
       rover.turnLeft()
-      expect(rover.direction).toEqual 'N'
+      expect(rover).toHead('N')
 
