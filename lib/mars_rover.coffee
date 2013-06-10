@@ -9,16 +9,16 @@ DIRECTION =
     left: 'S', right: 'N', vector: x: -1, y: 0
 
 class Point
-  constructor: (@position = {x: 0, y: 0}) ->
+  constructor: (@coordinates = {x: 0, y: 0}) ->
 
   plus: (other) -> new Point(
-    x: @position.x + other.position.x
-    y: @position.y + other.position.y
+    x: @coordinates.x + other.coordinates.x
+    y: @coordinates.y + other.coordinates.y
   )
 
   minus: (other) -> new Point(
-    x: @position.x - other.position.x
-    y: @position.y - other.position.y
+    x: @coordinates.x - other.coordinates.x
+    y: @coordinates.y - other.coordinates.y
   )
 
 class MarsRover
@@ -35,9 +35,9 @@ class MarsRover
     @direction = directionObject().right
 
   moveForward: () ->
-    @position = (new Point(@position).plus directionVector()).position
+    @position = (new Point(@position).plus directionVector()).coordinates
 
   moveBackward: () ->
-    @position = (new Point(@position).minus directionVector()).position
+    @position = (new Point(@position).minus directionVector()).coordinates
 
 module.exports = MarsRover
