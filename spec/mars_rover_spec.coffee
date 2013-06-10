@@ -80,3 +80,8 @@ describe 'The Mars rover', ->
       rover = new MarsRover(x: 2, y: 3)
       rover.moveForward()
       expect(rover).toHavePosition 2, 4
+
+    it 'moves forward heading E', ->
+      rover = new MarsRover(x: 2, y: 3, 'E')
+      rover.moveForward()
+      expect(rover).toHavePosition 3, 3

@@ -1,12 +1,12 @@
 DIRECTION =
   N:
-    left: 'W', right: 'E'
-  W:
-    left: 'S', right: 'N'
+    left: 'W', right: 'E', vector: x: 0, y: 1
+  E:
+    left: 'N', right: 'S', vector: x: 1, y: 0
   S:
     left: 'E', right: 'W'
-  E:
-    left: 'N', right: 'S'
+  W:
+    left: 'S', right: 'N'
 
 class Point
   constructor: (@position = {x: 0, y: 0}) ->
@@ -15,6 +15,7 @@ class Point
 
 class MarsRover
   directionObject = null
+  directionVector = () -> new Point directionObject().vector
 
   constructor: (@position = {x: 0, y: 0}, @direction = 'N') ->
     directionObject = () => DIRECTION[@direction]
@@ -26,6 +27,6 @@ class MarsRover
     @direction = directionObject().right
 
   moveForward: () ->
-    @position = (new Point(@position).plus new Point(x: 0, y: 1)).position
+    @position = (new Point(@position).plus directionVector()).position
 
 module.exports = MarsRover
