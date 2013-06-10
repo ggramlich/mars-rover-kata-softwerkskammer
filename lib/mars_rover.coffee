@@ -10,8 +10,16 @@ DIRECTION =
 
 class Point
   constructor: (@position = {x: 0, y: 0}) ->
-  plus: (other) -> new Point(x: @position.x + other.position.x, y: @position.y + other.position.y)
-  minus: (other) -> new Point(x: @position.x - other.position.x, y: @position.y - other.position.y)
+
+  plus: (other) -> new Point(
+    x: @position.x + other.position.x
+    y: @position.y + other.position.y
+  )
+
+  minus: (other) -> new Point(
+    x: @position.x - other.position.x
+    y: @position.y - other.position.y
+  )
 
 class MarsRover
   directionObject = null
