@@ -1,18 +1,22 @@
 MarsRover = require '../lib/mars_rover'
 
 describe 'The Mars rover', ->
+  rover = null
   beforeEach () ->
     @addMatchers
       toHead: (direction) -> @actual.direction is direction
+      toHavePosition: (x, y) ->
+        actual = @actual.position
+        actual.x is x and actual.y is y
 
   describe 'start', ->
     it 'has a position', ->
       rover = new MarsRover(x: 1, y: 2)
-      expect(rover.position).toEqual x: 1, y: 2
+      expect(rover).toHavePosition 1, 2
 
     it 'has a default position (0, 0), when not given in constructor', ->
       rover = new MarsRover(null)
-      expect(rover.position).toEqual x: 0, y: 0
+      expect(rover).toHavePosition 0, 0
 
     it 'has a direction', ->
       rover = new MarsRover(null, 'E')
@@ -24,7 +28,6 @@ describe 'The Mars rover', ->
 
 
   describe 'turning', ->
-    rover = null
     beforeEach ->
       rover = new MarsRover()
 
@@ -72,4 +75,7 @@ describe 'The Mars rover', ->
       rover.turnRight()
       expect(rover).toHead('N')
 
-
+  describe 'movement', ->
+    it 'moves forward heading N', ->
+      rover = new MarsRover()
+      expect(rover).toHavePosition 0, 0
