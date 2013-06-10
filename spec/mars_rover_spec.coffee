@@ -54,3 +54,22 @@ describe 'The Mars rover', ->
       rover.turnRight()
       expect(rover).toHead 'E'
 
+    it 'can turn right twice', ->
+      rover.turnRight()
+      rover.turnRight()
+      expect(rover).toHead 'S'
+
+    it 'can turn right three times', ->
+      rover.turnRight()
+      rover.turnRight()
+      rover.turnRight()
+      expect(rover).toHead 'W'
+
+    it 'can turn right four times', ->
+      rover.turnRight()
+      rover.turnRight()
+      rover.turnRight()
+      rover.turnRight()
+      expect(rover).toHead('N')
+
+
