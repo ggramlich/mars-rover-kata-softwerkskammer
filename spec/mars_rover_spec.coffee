@@ -95,3 +95,9 @@ describe 'The Mars rover', ->
       rover = new MarsRover(x: 2, y: 3, 'W')
       rover.moveForward()
       expect(rover).toHavePosition 1, 3
+
+    it 'moves backward heading N', ->
+      rover = new MarsRover(x: 2, y: 3)
+      rover.moveBackward()
+      expect(rover).toHavePosition 2, 2
+
