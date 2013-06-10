@@ -21,5 +21,7 @@ class MarsRover
   turnRight: () ->
     @direction = directionObject().right
 
+  moveForward: () ->
+    @position = {x: 0, y: 1}
 
 module.exports = MarsRover

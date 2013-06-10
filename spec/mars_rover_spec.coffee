@@ -78,4 +78,5 @@ describe 'The Mars rover', ->
   describe 'movement', ->
     it 'moves forward heading N', ->
       rover = new MarsRover()
-      expect(rover).toHavePosition 0, 0
+      rover.moveForward()
+      expect(rover).toHavePosition 0, 1
