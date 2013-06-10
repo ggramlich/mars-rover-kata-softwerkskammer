@@ -9,15 +9,17 @@ DIRECTION =
     left: 'N', right: 'S'
 
 class MarsRover
-  constructor: (@position = {x: 0, y: 0}, @direction = 'N') ->
+  directionObject = null
 
-  directionObject: () -> DIRECTION[@direction]
+  constructor: (@position = {x: 0, y: 0}, @direction = 'N') ->
+    directionObject = () => DIRECTION[@direction]
+
 
   turnLeft: () ->
-    @direction = @directionObject().left
+    @direction = directionObject().left
 
   turnRight: () ->
-    @direction = @directionObject().right
+    @direction = directionObject().right
 
 
 module.exports = MarsRover
