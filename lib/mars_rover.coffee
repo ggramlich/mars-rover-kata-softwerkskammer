@@ -14,4 +14,7 @@ class MarsRover
   turnLeft: () ->
     @direction = DIRECTION[@direction].left
 
+  turnRight: () ->
+    @direction = 'E'
+
 module.exports = MarsRover

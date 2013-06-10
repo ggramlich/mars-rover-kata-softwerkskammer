@@ -50,3 +50,7 @@ describe 'The Mars rover', ->
       rover.turnLeft()
       expect(rover).toHead('N')
 
+    it 'can turn right', ->
+      rover.turnRight()
+      expect(rover).toHead 'E'
+
